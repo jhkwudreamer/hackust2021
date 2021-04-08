@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "hackust2021-plasticity"
+  },
+  "targets": {
+    "hackust2021-plasticity": {
+      "hosting": {
+        "hackust2021-plasticity-1yd55s": [
+          "hackust2021-plasticity-1yd55s"
+        ]
+      }
+    }
   }
 }
