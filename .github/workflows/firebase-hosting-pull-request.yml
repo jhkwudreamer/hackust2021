@@ -18,5 +18,7 @@ jobs:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
           firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_HACKUST2021_PLASTICITY }}"
           projectId: hackust2021-plasticity
+          target: hackust2021-plasticity-1yd55s
+          channelId: live
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
