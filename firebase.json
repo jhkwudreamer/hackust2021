@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "hackust2021-plasticity-1yd55s",
     "public": "dist",
     "ignore": [
       "firebase.json",
