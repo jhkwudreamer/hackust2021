@@ -17,6 +17,7 @@
 
     <v-main>
       <StreetView />
+      <Overlay class="overlay" />
     </v-main>
   </v-app>
 </template>
@@ -24,12 +25,14 @@
 <script>
 // import HelloWorld from "./components/HelloWorld";
 import StreetView from "./components/StreetView";
+import Overlay from "./components/Overlay";
 
 export default {
   name: "App",
 
   components: {
     StreetView,
+    Overlay,
   },
 
   data: () => ({
