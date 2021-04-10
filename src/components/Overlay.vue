@@ -1,13 +1,18 @@
 <template>
   <div class="container">
     <route-list />
+    <compass />
   </div>
 </template>
 
 <script>
+import Compass from "./Compass.vue";
 import RouteList from "./RouteList.vue";
 export default {
-  components: { RouteList },
+  components: {
+    RouteList,
+    Compass,
+  },
   data: function () {
     return {
       test: 214,
