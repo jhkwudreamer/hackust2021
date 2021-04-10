@@ -26,7 +26,7 @@
               <v-list-item-content>
                 <v-list-item-title>
                   <span class="routeTitle">
-                    {{ route.from }} to {{ route.to }}
+                    {{ route.from.name }} to {{ route.to.name }}
                   </span>
                 </v-list-item-title>
                 <!--<v-list-item-subtitle>Subtitle {{ i }}</v-list-item-subtitle>-->
@@ -61,9 +61,45 @@ export default {
     return {
       dialog: true,
       routes: [
-        { id: 1, from: "HKUST", to: "CUHK" },
-        { id: 2, from: "CUHK", to: "HKU" },
-        { id: 3, from: "HKU", to: "HKUST" },
+        {
+          id: 1,
+          from: {
+            name: "Lam Tin somewhere",
+            lat: 22.30859618762706,
+            lng: 114.2357238009161,
+          },
+          to: {
+            name: "Lam Tin HKPL",
+            lat: 22.31037684247808,
+            lng: 114.23728891085517,
+          },
+        },
+        {
+          id: 2,
+          from: {
+            name: "Tsim Sha Tsui MTR B2",
+            lat: 22.298752346044566,
+            lng: 114.1724924661573,
+          },
+          to: {
+            name: "Tsim Sha Tsui Tom Lee",
+            lat: 22.29940474718665,
+            lng: 114.1728631130649,
+          },
+        },
+        {
+          id: 3,
+          from: {
+            name: "Wan Chai somewhere",
+            lat: 22.28052758811461,
+            lng: 114.17161516788869,
+          },
+          to: {
+            name: "HKCEC",
+            lat: 22.28061799908371,
+            lng: 114.17299599980838,
+          },
+        },
       ],
     };
   },
