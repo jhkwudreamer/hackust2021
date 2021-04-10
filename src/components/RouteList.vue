@@ -40,7 +40,7 @@
                   outlined
                   rounded
                   color="grey darken-1"
-                  @click="startRoute(route.id)"
+                  @click="startRoute(route)"
                 >
                   <v-icon left>fa-play</v-icon>
                   Start
@@ -67,11 +67,13 @@ export default {
             name: "Lam Tin somewhere",
             lat: 22.30859618762706,
             lng: 114.2357238009161,
+            heading: 90,
           },
           to: {
             name: "Lam Tin HKPL",
             lat: 22.31037684247808,
             lng: 114.23728891085517,
+            heading: 0,
           },
         },
         {
@@ -80,11 +82,13 @@ export default {
             name: "Tsim Sha Tsui MTR B2",
             lat: 22.298752346044566,
             lng: 114.1724924661573,
+            heading: 90,
           },
           to: {
             name: "Tsim Sha Tsui Tom Lee",
             lat: 22.29940474718665,
             lng: 114.1728631130649,
+            heading: 0,
           },
         },
         {
@@ -93,11 +97,13 @@ export default {
             name: "Wan Chai somewhere",
             lat: 22.28052758811461,
             lng: 114.17161516788869,
+            heading: 90,
           },
           to: {
             name: "HKCEC",
             lat: 22.28061799908371,
             lng: 114.17299599980838,
+            heading: 0,
           },
         },
       ],
@@ -105,9 +111,17 @@ export default {
   },
 
   methods: {
-    startRoute(route_id) {
-      window.alert("Welcome to route_id=" + route_id);
+    startRoute(route) {
+      window.alert(
+        "Welcome to route_id=" +
+          route.id +
+          "; from " +
+          route.from.name +
+          " to " +
+          route.to.name
+      );
       this.dialog = false;
+      this.$store.dispatch("startRoute", route);
     },
   },
 };
