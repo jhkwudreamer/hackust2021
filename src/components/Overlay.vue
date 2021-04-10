@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <route-list />
-    <compass />
+    <!-- <compass /> -->
   </div>
 </template>
 
 <script>
-import Compass from "./Compass.vue";
+// import Compass from "./Compass.vue";
 import RouteList from "./RouteList.vue";
 export default {
   components: {
     RouteList,
-    Compass,
+    // Compass,
   },
   data: function () {
     return {

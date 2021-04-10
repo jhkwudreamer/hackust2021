@@ -55,11 +55,11 @@ export default {
       console.log(pos.lat(), pos.lng());
     });
 
-    this.panorama.addListener("pov_changed", () => {
-      const heading = this.panorama.getPov().heading;
-      console.log(heading);
-      this.$store.dispatch("setHeading", heading);
-    });
+    // this.panorama.addListener("pov_changed", () => {
+    //   const heading = this.panorama.getPov().heading;
+    //   console.log(heading);
+    //   this.$store.dispatch("setHeading", heading);
+    // });
   },
 
   computed: {
