@@ -11,6 +11,8 @@ export default {
   data() {
     return {
       panoram: undefined,
+      startPointMarker: undefined,
+      toPointMarker: undefined,
     };
   },
   mounted: function () {
@@ -30,6 +32,23 @@ export default {
         addressControl: false,
       }
     );
+
+    this.startPointMarker = new google.maps.Marker({
+      label: "S",
+      title: "Start",
+      map: this.panorama,
+      visible: false,
+    });
+
+    this.toPointMarker = new google.maps.Marker({
+      label: "E",
+      title: "End",
+      map: this.panorama,
+      visible: false,
+    });
+    this.toPointMarker.addListener("click", () => {
+      window.alert("Congratulations! Destination reached!");
+    });
 
     this.panorama.addListener("position_changed", () => {
       const pos = this.panorama.getPosition();
@@ -51,6 +70,17 @@ export default {
         heading: this.route.from.heading,
         pitch: this.panorama.getPov().pitch,
       });
+
+      this.startPointMarker.setPosition({
+        lat: this.route.from.lat,
+        lng: this.route.from.lng,
+      });
+      this.startPointMarker.setVisible(true);
+      this.toPointMarker.setPosition({
+        lat: this.route.to.lat,
+        lng: this.route.to.lng,
+      });
+      this.toPointMarker.setVisible(true);
     },
   },
 };
