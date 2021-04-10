@@ -5,11 +5,10 @@
 </template>
 
 <script>
+/* global google */
 export default {
   mounted: function () {
     const fenway = { lat: 22.3095008, lng: 114.2377189 };
-    // const panorama =
-    // eslint-disable-next-line no-undef
     new google.maps.StreetViewPanorama(document.getElementById("pano"), {
       position: fenway,
       pov: {
