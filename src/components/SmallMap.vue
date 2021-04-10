@@ -29,10 +29,14 @@ export default {
       showMap: false,
       map: undefined,
       marker: undefined,
+      /**  @type { google.maps.Marker } */
+      startPointMarker: undefined,
+      /**  @type { google.maps.Marker } */
+      toPointMarker: undefined,
     };
   },
   computed: {
-    ...mapState(["position", "heading"]),
+    ...mapState(["route", "position", "heading"]),
   },
   mounted() {
     this.map = new google.maps.Map(
@@ -55,8 +59,39 @@ export default {
       },
       visible: true,
     });
+
+    this.startPointMarker = new google.maps.Marker({
+      label: "S",
+      title: "Start",
+      map: this.map,
+      visible: false,
+    });
+
+    this.toPointMarker = new google.maps.Marker({
+      label: "E",
+      title: "End",
+      map: this.map,
+      visible: false,
+    });
   },
   watch: {
+    route() {
+      if (this.route) {
+        this.startPointMarker.setPosition({
+          lat: this.route.from.lat,
+          lng: this.route.from.lng,
+        });
+        this.startPointMarker.setVisible(true);
+        this.toPointMarker.setPosition({
+          lat: this.route.to.lat,
+          lng: this.route.to.lng,
+        });
+        this.toPointMarker.setVisible(true);
+      } else {
+        this.startPointMarker.setVisible(false);
+        this.toPointMarker.setVisible(false);
+      }
+    },
     position: {
       handler() {
         if (this.map) {
