@@ -71,8 +71,8 @@ export default {
           },
           to: {
             name: "Lam Tin HKPL",
-            lat: 22.31037684247808,
-            lng: 114.23728891085517,
+            lat: 22.309813703963147,
+            lng: 114.23769249060987,
             heading: 0,
           },
         },
@@ -86,8 +86,8 @@ export default {
           },
           to: {
             name: "Tsim Sha Tsui Tom Lee",
-            lat: 22.29940474718665,
-            lng: 114.1728631130649,
+            lat: 22.2990763328982,
+            lng: 114.17292513978508,
             heading: 0,
           },
         },
