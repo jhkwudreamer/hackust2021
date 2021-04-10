@@ -6,23 +6,34 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     route: undefined,
-    // heading: undefined,
+    position: {
+      lat: undefined,
+      lng: undefined,
+    },
+    heading: undefined,
   },
   mutations: {
     startRoute(state, route) {
       state.route = route;
     },
-    // setHeading(state, heading) {
-    //   state.heading = heading;
-    // },
+    setPosition(state, position) {
+      state.position.lat = position.lat;
+      state.position.lng = position.lng;
+    },
+    setHeading(state, heading) {
+      state.heading = heading;
+    },
   },
   actions: {
     startRoute({ commit }, route) {
       commit("startRoute", route);
     },
-    // setHeading({ commit }, heading) {
-    //   commit("setHeading", heading);
-    // },
+    setPosition({ commit }, position) {
+      commit("setPosition", position);
+    },
+    setHeading({ commit }, heading) {
+      commit("setHeading", heading);
+    },
   },
   modules: {},
 });

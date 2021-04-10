@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <route-list />
+    <small-map />
     <!-- <compass /> -->
   </div>
 </template>
@@ -8,9 +9,11 @@
 <script>
 // import Compass from "./Compass.vue";
 import RouteList from "./RouteList.vue";
+import SmallMap from "@/components/SmallMap.vue";
 export default {
   components: {
     RouteList,
+    SmallMap,
     // Compass,
   },
   data: function () {

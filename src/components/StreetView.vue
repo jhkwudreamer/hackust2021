@@ -58,6 +58,12 @@ export default {
     this.panorama.addListener("position_changed", () => {
       const pos = this.panorama.getPosition();
       this.position = pos;
+      this.$store.dispatch("setPosition", { lat: pos.lat(), lng: pos.lng() });
+    });
+
+    this.panorama.addListener("pov_changed", () => {
+      const heading = this.panorama.getPov().heading;
+      this.$store.dispatch("setHeading", heading);
     });
   },
 
