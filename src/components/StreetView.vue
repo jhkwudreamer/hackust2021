@@ -10,12 +10,17 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      panoram: undefined,
+      /**  @type { google.maps.StreetViewPanorama } */
+      panorama: undefined,
+      /**  @type { google.maps.LatLng } */
+      position: undefined,
+      /**  @type { google.maps.Marker } */
       startPointMarker: undefined,
+      /**  @type { google.maps.Marker } */
       toPointMarker: undefined,
     };
   },
-  mounted: function () {
+  mounted() {
     const fenway = { lat: 22.3095008, lng: 114.2377189 };
     this.panorama = new google.maps.StreetViewPanorama(
       document.getElementById("pano"),
@@ -52,14 +57,8 @@ export default {
 
     this.panorama.addListener("position_changed", () => {
       const pos = this.panorama.getPosition();
-      console.log(pos.lat(), pos.lng());
+      this.position = pos;
     });
-
-    // this.panorama.addListener("pov_changed", () => {
-    //   const heading = this.panorama.getPov().heading;
-    //   console.log(heading);
-    //   this.$store.dispatch("setHeading", heading);
-    // });
   },
 
   computed: {
@@ -87,6 +86,31 @@ export default {
         lng: this.route.to.lng,
       });
       this.toPointMarker.setVisible(true);
+    },
+    position() {
+      [this.toPointMarker, this.startPointMarker].forEach((marker) => {
+        if (!marker.getPosition()) {
+          return;
+        }
+
+        const DISTANCE_FROM_CENTER = 0.0001;
+        const bounds = new google.maps.LatLngBounds(
+          {
+            lat: marker.getPosition().lat() - DISTANCE_FROM_CENTER,
+            lng: marker.getPosition().lng() - DISTANCE_FROM_CENTER,
+          },
+          {
+            lat: marker.getPosition().lat() + DISTANCE_FROM_CENTER,
+            lng: marker.getPosition().lng() + DISTANCE_FROM_CENTER,
+          }
+        );
+
+        if (bounds.contains(this.position)) {
+          marker.setVisible(true);
+        } else {
+          marker.setVisible(false);
+        }
+      });
     },
   },
 };
