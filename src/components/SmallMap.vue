@@ -12,10 +12,10 @@
     </v-btn>
 
     <div id="SmallMapDiv" v-show="showMap">
+      <div id="SmallMapContainer"></div>
       <v-btn id="SmallMapCloseBtn" icon @click="showMap = false">
         <v-icon>fa-times-circle</v-icon>
       </v-btn>
-      <div id="SmallMapContainer"></div>
     </div>
   </div>
 </template>
@@ -132,7 +132,6 @@ export default {
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 101;
 }
 #SmallMapContainer {
   width: 100%;
