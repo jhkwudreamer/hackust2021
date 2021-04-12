@@ -34,7 +34,7 @@
 
               <v-list-item-action>
                 <v-list-item-action-text>
-                  1<sup>st</sup>: {{ Math.floor(Math.random() * 500) }}km
+                  1<sup>st</sup>: {{ Math.floor(Math.random() * 500) }}m
                 </v-list-item-action-text>
                 <v-btn
                   outlined

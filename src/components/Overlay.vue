@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <distance-travelled-display />
     <route-list />
     <small-map />
     <!-- <compass /> -->
@@ -8,10 +9,12 @@
 
 <script>
 // import Compass from "./Compass.vue";
+import DistanceTravelledDisplay from "./DistanceTravelledDisplay.vue";
 import RouteList from "./RouteList.vue";
 import SmallMap from "@/components/SmallMap.vue";
 export default {
   components: {
+    DistanceTravelledDisplay,
     RouteList,
     SmallMap,
     // Compass,

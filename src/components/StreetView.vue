@@ -93,7 +93,7 @@ export default {
       });
       this.toPointMarker.setVisible(true);
     },
-    position() {
+    position(newVal, oldVal) {
       [this.toPointMarker, this.startPointMarker].forEach((marker) => {
         if (!marker.getPosition()) {
           return;
@@ -117,6 +117,14 @@ export default {
           marker.setVisible(false);
         }
       });
+
+      if (newVal && oldVal) {
+        const distanceTravelledToAdd = google.maps.geometry.spherical.computeDistanceBetween(
+          newVal,
+          oldVal
+        );
+        this.$store.dispatch("addDistanceTravelled", distanceTravelledToAdd);
+      }
     },
   },
 };
