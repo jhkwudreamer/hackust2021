@@ -26,6 +26,7 @@
 // import HelloWorld from "./components/HelloWorld";
 import StreetView from "./components/StreetView";
 import Overlay from "./components/Overlay";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
@@ -38,5 +39,19 @@ export default {
   data: () => ({
     //
   }),
+
+  computed: {
+    ...mapState(["route", "currentCheckpointId", "distanceTravelled"]),
+  },
+
+  watch: {
+    currentCheckpointId() {
+      if (this.currentCheckpointId === this.route.checkpoints.length) {
+        alert(
+          `Congratulations! Total distance = ${this.distanceTravelled.toFixed()}`
+        );
+      }
+    },
+  },
 };
 </script>

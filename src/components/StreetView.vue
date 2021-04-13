@@ -62,9 +62,35 @@ export default {
   },
 
   computed: {
-    ...mapState(["route"]),
+    ...mapState(["route", "currentCheckpointId"]),
   },
+  methods: {
+    updateMarkers() {
+      this.markers.forEach((marker, id) => {
+        if (!marker.getPosition()) {
+          return;
+        }
 
+        const DISTANCE_FROM_CENTER = 0.0005;
+        const bounds = new google.maps.LatLngBounds(
+          {
+            lat: marker.getPosition().lat() - DISTANCE_FROM_CENTER,
+            lng: marker.getPosition().lng() - DISTANCE_FROM_CENTER,
+          },
+          {
+            lat: marker.getPosition().lat() + DISTANCE_FROM_CENTER,
+            lng: marker.getPosition().lng() + DISTANCE_FROM_CENTER,
+          }
+        );
+
+        if (bounds.contains(this.position) && id === this.currentCheckpointId) {
+          marker.setVisible(true);
+        } else {
+          marker.setVisible(false);
+        }
+      });
+    },
+  },
   watch: {
     route() {
       this.markers.forEach((marker) => {
@@ -102,30 +128,9 @@ export default {
       });
     },
     position(newVal, oldVal) {
-      this.markers.forEach((marker) => {
-        if (!marker.getPosition()) {
-          return;
-        }
+      this.updateMarkers();
 
-        const DISTANCE_FROM_CENTER = 0.0005;
-        const bounds = new google.maps.LatLngBounds(
-          {
-            lat: marker.getPosition().lat() - DISTANCE_FROM_CENTER,
-            lng: marker.getPosition().lng() - DISTANCE_FROM_CENTER,
-          },
-          {
-            lat: marker.getPosition().lat() + DISTANCE_FROM_CENTER,
-            lng: marker.getPosition().lng() + DISTANCE_FROM_CENTER,
-          }
-        );
-
-        if (bounds.contains(this.position)) {
-          marker.setVisible(true);
-        } else {
-          marker.setVisible(false);
-        }
-      });
-
+      // Print current position
       console.log(JSON.stringify(this.position));
 
       if (newVal && oldVal) {
@@ -135,6 +140,9 @@ export default {
         );
         this.$store.dispatch("addDistanceTravelled", distanceTravelledToAdd);
       }
+    },
+    currentCheckpointId() {
+      this.updateMarkers();
     },
   },
 };

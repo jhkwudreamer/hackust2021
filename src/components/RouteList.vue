@@ -4,7 +4,10 @@
       <template v-slot:activator="{ on, attrs }">
         <v-btn id="routeListBtn" large v-bind="attrs" v-on="on">
           <v-icon left>fa-map-marker-alt</v-icon>
-          <span>0 / {{ routes.length }}</span>
+          <span
+            >{{ currentCheckpointId }} /
+            {{ route ? route.checkpoints.length : 0 }}</span
+          >
         </v-btn>
       </template>
 
@@ -18,7 +21,7 @@
 
         <v-card-text>
           <v-list style="background: inherit">
-            <v-list-item v-for="route in routes" :key="route.id">
+            <v-list-item class="my-2" v-for="route in routes" :key="route.id">
               <v-list-item-avatar>
                 <v-icon class="purple accent-1" dark>fa-route</v-icon>
               </v-list-item-avatar>
@@ -33,9 +36,6 @@
               </v-list-item-content>
 
               <v-list-item-action>
-                <v-list-item-action-text>
-                  1<sup>st</sup>: {{ Math.floor(Math.random() * 500) }}m
-                </v-list-item-action-text>
                 <v-btn
                   outlined
                   rounded
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "RouteList",
   data() {
@@ -131,7 +132,9 @@ export default {
       ],
     };
   },
-
+  computed: {
+    ...mapState(["currentCheckpointId", "route"]),
+  },
   methods: {
     startRoute(route) {
       window.alert("Welcome to route_id=" + route.id);

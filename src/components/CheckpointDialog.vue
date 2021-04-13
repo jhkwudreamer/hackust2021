@@ -9,7 +9,10 @@
           {{ checkpoint.name }}
         </v-card-title>
 
-        <v-card-text> Hi </v-card-text>
+        <v-card-text></v-card-text>
+        <v-card-actions>
+          <v-btn text @click="nextCheckpoint">Next Checkpoint</v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
   </div>
@@ -24,7 +27,7 @@ export default {
     return { dialog: false };
   },
   computed: {
-    ...mapState(["checkpoint"]),
+    ...mapState(["checkpoint", "currentCheckpointId"]),
   },
   watch: {
     checkpoint() {
@@ -36,6 +39,15 @@ export default {
       if (!this.dialog) {
         this.$store.commit("setCheckpoint", undefined);
       }
+    },
+  },
+  methods: {
+    nextCheckpoint() {
+      this.$store.commit(
+        "setCurrentCheckpointId",
+        this.currentCheckpointId + 1
+      );
+      this.dialog = false;
     },
   },
 };

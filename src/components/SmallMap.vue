@@ -33,7 +33,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["route", "position", "heading"]),
+    ...mapState(["route", "position", "heading", "currentCheckpointId"]),
   },
   mounted() {
     this.map = new google.maps.Map(
@@ -58,6 +58,15 @@ export default {
     });
   },
   watch: {
+    currentCheckpointId() {
+      this.markers.forEach((marker, id) => {
+        if (id === this.currentCheckpointId) {
+          marker.setVisible(true);
+        } else {
+          marker.setVisible(false);
+        }
+      });
+    },
     route() {
       if (this.route) {
         this.markers.forEach((marker) => {

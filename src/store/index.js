@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     route: undefined,
     checkpoint: undefined,
+    currentCheckpointId: 0,
     position: {
       lat: undefined,
       lng: undefined,
@@ -20,6 +21,7 @@ export default new Vuex.Store({
       state.route = route;
       state.distanceTravelled = 0;
       state.hasStarted = false;
+      state.currentCheckpointId = 0;
     },
     setPosition(state, position) {
       state.position.lat = position.lat;
@@ -61,6 +63,9 @@ export default new Vuex.Store({
     setCheckpoint(state, checkpoint) {
       state.checkpoint = checkpoint;
     },
+    setCurrentCheckpointId(state, currentCheckpointId) {
+      state.currentCheckpointId = currentCheckpointId;
+    },
   },
   actions: {
     startRoute({ commit }, route) {
@@ -80,6 +85,9 @@ export default new Vuex.Store({
     },
     setCheckpoint({ commit }, checkpoint) {
       commit("setCheckpoint", checkpoint);
+    },
+    setCurrentCheckpointId({ commit }, checkpointId) {
+      commit("setCurrentCheckpointId", checkpointId);
     },
   },
   modules: {},
