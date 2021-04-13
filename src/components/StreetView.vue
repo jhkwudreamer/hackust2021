@@ -73,7 +73,7 @@ export default {
 
       this.markers = this.route.checkpoints.map((checkpoint) => {
         const marker = new google.maps.Marker({
-          title: "Start",
+          title: checkpoint.name,
           icon: MARKER_ICON,
           animation: google.maps.Animation.BOUNCE,
           map: this.panorama,
