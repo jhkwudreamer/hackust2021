@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     route: undefined,
+    checkpoint: undefined,
     position: {
       lat: undefined,
       lng: undefined,
@@ -31,8 +32,8 @@ export default new Vuex.Store({
       if (state.hasStarted) {
         state.distanceTravelled = distanceTravelled;
       } else if (
-        state.position.lat === state.route.from.lat &&
-        state.position.lng === state.route.from.lng
+        state.position.lat === state.route.checkpoints[0].lat &&
+        state.position.lng === state.route.checkpoints[0].lng
       ) {
         // Add small timeout to fix paranoma may not be available at exactly the start point
         // In that case, paranoma may move a little away from the designed from point coordinate
@@ -46,8 +47,8 @@ export default new Vuex.Store({
       if (state.hasStarted) {
         state.distanceTravelled += distanceTravelledToAdd;
       } else if (
-        state.position.lat === state.route.from.lat &&
-        state.position.lng === state.route.from.lng
+        state.position.lat === state.route.checkpoints[0].lat &&
+        state.position.lng === state.route.checkpoints[0].lng
       ) {
         // Add small timeout to fix paranoma may not be available at exactly the start point
         // In that case, paranoma may move a little away from the designed from point coordinate
@@ -56,6 +57,9 @@ export default new Vuex.Store({
           state.hasStarted = true;
         }, 250);
       }
+    },
+    setCheckpoint(state, checkpoint) {
+      state.checkpoint = checkpoint;
     },
   },
   actions: {
@@ -73,6 +77,9 @@ export default new Vuex.Store({
     },
     addDistanceTravelled({ commit }, distanceTravelledToAdd) {
       commit("addDistanceTravelled", distanceTravelledToAdd);
+    },
+    setCheckpoint({ commit }, checkpoint) {
+      commit("setCheckpoint", checkpoint);
     },
   },
   modules: {},

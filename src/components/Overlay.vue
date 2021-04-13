@@ -3,6 +3,7 @@
     <distance-travelled-display />
     <route-list />
     <small-map />
+    <checkpoint-dialog />
     <!-- <compass /> -->
   </div>
 </template>
@@ -11,12 +12,14 @@
 // import Compass from "./Compass.vue";
 import DistanceTravelledDisplay from "./DistanceTravelledDisplay.vue";
 import RouteList from "./RouteList.vue";
-import SmallMap from "@/components/SmallMap.vue";
+import SmallMap from "./SmallMap.vue";
+import CheckpointDialog from "./CheckpointDialog.vue";
 export default {
   components: {
     DistanceTravelledDisplay,
     RouteList,
     SmallMap,
+    CheckpointDialog,
     // Compass,
   },
   data: function () {

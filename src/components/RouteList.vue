@@ -26,7 +26,7 @@
               <v-list-item-content>
                 <v-list-item-title>
                   <span class="routeTitle">
-                    {{ route.from.name }} to {{ route.to.name }}
+                    {{ route.title }}
                   </span>
                 </v-list-item-title>
                 <!--<v-list-item-subtitle>Subtitle {{ i }}</v-list-item-subtitle>-->
@@ -63,48 +63,70 @@ export default {
       routes: [
         {
           id: 1,
-          from: {
-            name: "Lam Tin somewhere",
-            lat: 22.30859618762706,
-            lng: 114.2357238009161,
-            heading: 90,
-          },
-          to: {
-            name: "Lam Tin HKPL",
-            lat: 22.309813703963147,
-            lng: 114.23769249060987,
-            heading: 0,
-          },
+          title: "Lam Tin blah",
+          checkpoints: [
+            {
+              id: 1,
+              name: "Lam Tin somewhere",
+              lat: 22.30859618762706,
+              lng: 114.2357238009161,
+              heading: 90,
+            },
+            {
+              id: 2,
+              name: "St Paul",
+              lat: 22.30881038662973,
+              lng: 114.2377198899602,
+              heading: 0,
+            },
+            {
+              id: 3,
+              name: "Lam Tin HKPL",
+              lat: 22.309813703963147,
+              lng: 114.23769249060987,
+              heading: 0,
+            },
+          ],
         },
         {
           id: 2,
-          from: {
-            name: "Tsim Sha Tsui MTR B2",
-            lat: 22.298752346044566,
-            lng: 114.1724924661573,
-            heading: 90,
-          },
-          to: {
-            name: "Tsim Sha Tsui Tom Lee",
-            lat: 22.2990763328982,
-            lng: 114.17292513978508,
-            heading: 0,
-          },
+          title: "Tsim Sha Tsui blah",
+          checkpoints: [
+            {
+              id: 1,
+              name: "Tsim Sha Tsui MTR B2",
+              lat: 22.298752346044566,
+              lng: 114.1724924661573,
+              heading: 90,
+            },
+            {
+              id: 2,
+              name: "Tsim Sha Tsui Tom Lee",
+              lat: 22.2990763328982,
+              lng: 114.17292513978508,
+              heading: 0,
+            },
+          ],
         },
         {
           id: 3,
-          from: {
-            name: "Wan Chai somewhere",
-            lat: 22.28052758811461,
-            lng: 114.17161516788869,
-            heading: 90,
-          },
-          to: {
-            name: "HKCEC",
-            lat: 22.28061799908371,
-            lng: 114.17299599980838,
-            heading: 0,
-          },
+          title: "Wan Chai blah",
+          checkpoints: [
+            {
+              id: 1,
+              name: "Wan Chai somewhere",
+              lat: 22.28052758811461,
+              lng: 114.17161516788869,
+              heading: 90,
+            },
+            {
+              id: 2,
+              name: "HKCEC",
+              lat: 22.28061799908371,
+              lng: 114.17299599980838,
+              heading: 0,
+            },
+          ],
         },
       ],
     };
@@ -112,14 +134,7 @@ export default {
 
   methods: {
     startRoute(route) {
-      window.alert(
-        "Welcome to route_id=" +
-          route.id +
-          "; from " +
-          route.from.name +
-          " to " +
-          route.to.name
-      );
+      window.alert("Welcome to route_id=" + route.id);
       this.dialog = false;
       this.$store.dispatch("startRoute", route);
     },
