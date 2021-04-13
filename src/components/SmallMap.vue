@@ -56,37 +56,26 @@ export default {
       },
       visible: true,
     });
-
-    // this.startPointMarker = new google.maps.Marker({
-    //   label: "S",
-    //   title: "Start",
-    //   map: this.map,
-    //   visible: false,
-    // });
-
-    // this.toPointMarker = new google.maps.Marker({
-    //   label: "E",
-    //   title: "End",
-    //   map: this.map,
-    //   visible: false,
-    // });
   },
   watch: {
     route() {
       if (this.route) {
-        //   this.startPointMarker.setPosition({
-        //     lat: this.route.from.lat,
-        //     lng: this.route.from.lng,
-        //   });
-        //   this.startPointMarker.setVisible(true);
-        //   this.toPointMarker.setPosition({
-        //     lat: this.route.to.lat,
-        //     lng: this.route.to.lng,
-        //   });
-        //   this.toPointMarker.setVisible(true);
-        // } else {
-        //   this.startPointMarker.setVisible(false);
-        //   this.toPointMarker.setVisible(false);
+        this.markers.forEach((marker) => {
+          marker.setMap(null);
+        });
+
+        this.markers = this.route.checkpoints.map((checkpoint) => {
+          const marker = new google.maps.Marker({
+            title: checkpoint.name,
+            map: this.map,
+            visible: true,
+            position: {
+              lat: checkpoint.lat,
+              lng: checkpoint.lng,
+            },
+          });
+          return marker;
+        });
       }
     },
     position: {
