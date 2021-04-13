@@ -3,8 +3,8 @@
     <v-btn
       id="SmallMapOpenBtn"
       v-show="!showMap"
-      color="red"
-      icon
+      color="rgba(255, 255, 255, 0.6)"
+      fab
       large
       @click="showMap = true"
     >
@@ -119,7 +119,7 @@ export default {
   position: absolute;
 }
 #SmallMapOpenBtn {
-  left: 36px;
+  left: 24px;
   bottom: 36px;
 }
 #SmallMapDiv {
