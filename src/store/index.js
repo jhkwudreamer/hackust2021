@@ -15,6 +15,13 @@ export default new Vuex.Store({
     heading: undefined,
     distanceTravelled: 0,
     hasStarted: false,
+    user: {
+      isSignedIn: true,
+      userData: {
+        displayName: "JW",
+        photoURL: require("@/assets/userPhoto.png"),
+      },
+    },
   },
   mutations: {
     startRoute(state, route) {

@@ -90,14 +90,9 @@
       </v-list>
       <v-divider />
       <v-list nav dense>
-        <v-list-item :to="{ name: 'Home' }" exact>
+        <v-list-item :to="{ name: 'MainView' }" exact>
           <v-list-item-icon><v-icon>fa-home</v-icon></v-list-item-icon>
           <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
-
-        <v-list-item v-if="!user.isSignedIn" :to="{ name: 'SignIn' }">
-          <v-list-item-icon><v-icon>fa-sign-in-alt</v-icon></v-list-item-icon>
-          <v-list-item-title>Sign In</v-list-item-title>
         </v-list-item>
 
         <v-list-item :to="{ name: 'QRScan' }">
@@ -114,6 +109,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 // import HelloWorld from "./components/HelloWorld";
 
 export default {
@@ -125,14 +121,11 @@ export default {
       isNavDrawerOpened: false,
       isAccountOpened: false,
     },
-    user: {
-      isSignedIn: true,
-      userData: {
-        displayName: "JW",
-        photoURL: require("@/assets/userPhoto.png"),
-      },
-    },
   }),
+
+  computed: {
+    ...mapState(["user"]),
+  },
 
   methods: {
     signOut() {

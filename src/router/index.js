@@ -19,6 +19,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "QRScan" */ "../views/QRScan.vue"),
   },
+  {
+    path: "/account",
+    name: "MyAccount",
+    component: () =>
+      import(/* webpackChunkName: "MyAccount" */ "../views/MyAccount.vue"),
+  },
 ];
 
 const router = new VueRouter({
