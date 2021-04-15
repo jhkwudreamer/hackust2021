@@ -40,11 +40,12 @@ export default {
       document.getElementById("SmallMapContainer"),
       {
         center: { lat: 22.3193, lng: 114.1694 },
-        zoom: 18,
-        zoomControl: false,
-        fullscreenControl: false,
-        mapTypeControl: false,
-        streetViewControl: false,
+        zoom: 17,
+        minZoom: 17,
+        maxZoom: 17,
+
+        disableDefaultUI: true,
+        clickableIcons: false,
       }
     );
 
@@ -131,6 +132,5 @@ export default {
 #SmallMapContainer {
   width: 100%;
   height: 100%;
-  pointer-events: none;
 }
 </style>
