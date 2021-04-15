@@ -66,9 +66,14 @@
           no-action
         >
           <template v-slot:activator>
-            <v-avatar>
+            <v-list-item-avatar>
               <v-img :src="user.userData.photoURL" />
-            </v-avatar>
+            </v-list-item-avatar>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ user.userData.displayName }}
+              </v-list-item-title>
+            </v-list-item-content>
           </template>
 
           <v-list-item :to="{ name: 'MyAccount' }">
@@ -117,7 +122,7 @@ export default {
   data: () => ({
     drawer: null,
     navDrawer: {
-      isNavDrawerOpened: null,
+      isNavDrawerOpened: false,
       isAccountOpened: false,
     },
     user: {
