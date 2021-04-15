@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="view-container">
     <distance-travelled-display />
     <route-list />
     <small-map />
@@ -29,14 +29,14 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.view-container {
   width: 100%;
   height: 100%;
   position: absolute;
-  z-index: 100;
+  z-index: 5;
   pointer-events: none; /* Fix the overlay preventing clicks to bottom layers */
 }
-.container * {
+.view-container * {
   pointer-events: auto;
 }
 </style>

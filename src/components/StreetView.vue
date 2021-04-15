@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="view-container">
     <div id="pano"></div>
   </div>
 </template>
@@ -146,7 +146,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.view-container {
   display: flex;
   width: 100%;
   height: 100%;

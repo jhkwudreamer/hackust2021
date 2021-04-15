@@ -25,16 +25,10 @@
         <template v-if="user.isSignedIn">
           <v-menu offset-y open-on-hover>
             <template v-slot:activator="{ on, attrs }">
-              <span> </span>
-              <v-btn v-bind="attrs" v-on="on">
+              <v-btn fab v-bind="attrs" v-on="on">
                 <v-avatar>
-                  <v-img
-                    v-if="user.userData.photoURL"
-                    :src="user.userData.photoURL"
-                  />
+                  <v-img :src="user.userData.photoURL" />
                 </v-avatar>
-                {{ user.userData.displayName }}
-                <v-icon>fa-chevron-down</v-icon>
               </v-btn>
             </template>
 
@@ -72,14 +66,9 @@
           no-action
         >
           <template v-slot:activator>
-            <v-list-item-avatar>
+            <v-avatar>
               <v-img :src="user.userData.photoURL" />
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ user.userData.displayName }}
-              </v-list-item-title>
-            </v-list-item-content>
+            </v-avatar>
           </template>
 
           <v-list-item :to="{ name: 'MyAccount' }">
@@ -147,3 +136,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.v-navigation-drawer--fixed {
+  z-index: 200;
+}
+</style>
