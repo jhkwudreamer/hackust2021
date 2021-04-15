@@ -16,42 +16,19 @@
     </v-app-bar>
 
     <v-main>
-      <StreetView />
-      <Overlay class="overlay" />
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld";
-import StreetView from "./components/StreetView";
-import Overlay from "./components/Overlay";
-import { mapState } from "vuex";
 
 export default {
   name: "App",
 
-  components: {
-    StreetView,
-    Overlay,
-  },
-
   data: () => ({
     //
   }),
-
-  computed: {
-    ...mapState(["route", "currentCheckpointId", "distanceTravelled"]),
-  },
-
-  watch: {
-    currentCheckpointId() {
-      if (this.currentCheckpointId === this.route.checkpoints.length) {
-        alert(
-          `Congratulations! Total distance = ${this.distanceTravelled.toFixed()}`
-        );
-      }
-    },
-  },
 };
 </script>
