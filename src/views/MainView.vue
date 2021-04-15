@@ -1,19 +1,10 @@
 <template>
-  <div>
-    <StreetView />
-    <Overlay class="overlay" />
-  </div>
+  <div></div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import StreetView from "@/components/StreetView";
-import Overlay from "@/components/Overlay";
 export default {
-  components: {
-    StreetView,
-    Overlay,
-  },
   data() {
     return {};
   },

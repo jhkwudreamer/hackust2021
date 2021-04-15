@@ -1,17 +1,21 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h2>Scan the QR code</h2>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <video v-show="isScannerActive" id="webcamDisplay"></video>
-        <v-btn v-if="!isScannerActive" @click="startScan">Scan another</v-btn>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-card color="rgb(255, 255, 255, 0.8)">
+    <v-card-title>
+      <h2>Scan the QR code</h2>
+    </v-card-title>
+    <v-card-text>
+      <v-container>
+        <v-row>
+          <v-col>
+            <video v-show="isScannerActive" id="webcamDisplay"></video>
+            <v-btn v-if="!isScannerActive" @click="startScan"
+              >Scan another</v-btn
+            >
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

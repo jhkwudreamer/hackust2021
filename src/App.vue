@@ -103,17 +103,28 @@
     </v-navigation-drawer>
 
     <v-main>
-      <router-view />
+      <StreetView />
+      <Overlay class="overlay" />
+
+      <v-dialog v-model="dialog" width="800">
+        <router-view />
+      </v-dialog>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import { mapState } from "vuex";
-// import HelloWorld from "./components/HelloWorld";
+
+import StreetView from "@/components/StreetView";
+import Overlay from "@/components/Overlay";
 
 export default {
   name: "App",
+  components: {
+    StreetView,
+    Overlay,
+  },
 
   data: () => ({
     drawer: null,
@@ -121,6 +132,7 @@ export default {
       isNavDrawerOpened: false,
       isAccountOpened: false,
     },
+    dialog: false,
   }),
 
   computed: {
@@ -130,6 +142,20 @@ export default {
   methods: {
     signOut() {
       return;
+    },
+  },
+
+  watch: {
+    $route(to) {
+      if (to.path !== "/") {
+        this.dialog = true;
+      }
+    },
+
+    dialog() {
+      if (!this.dialog) {
+        this.$router.push("/");
+      }
     },
   },
 };

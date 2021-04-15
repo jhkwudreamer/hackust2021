@@ -1,5 +1,5 @@
 <template>
-  <v-card max-width="800">
+  <v-card color="rgb(255, 255, 255, 0.8)">
     <v-card-title>
       <v-list-item>
         <v-list-item-avatar>
