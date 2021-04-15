@@ -100,9 +100,9 @@
           <v-list-item-title>Sign In</v-list-item-title>
         </v-list-item>
 
-        <v-list-item :to="{ name: 'About' }">
-          <v-list-item-icon><v-icon>fa-info-circle</v-icon></v-list-item-icon>
-          <v-list-item-title>About</v-list-item-title>
+        <v-list-item :to="{ name: 'QRScan' }">
+          <v-list-item-icon><v-icon>fa-qrcode</v-icon></v-list-item-icon>
+          <v-list-item-title>QR Scan</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
