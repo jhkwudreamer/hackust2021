@@ -23,9 +23,7 @@ export default {
     // Compass,
   },
   data: function () {
-    return {
-      test: 214,
-    };
+    return {};
   },
 };
 </script>
