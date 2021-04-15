@@ -67,25 +67,30 @@ export default {
           title: "Lam Tin blah",
           checkpoints: [
             {
-              id: 1,
+              id: 0,
               name: "Lam Tin somewhere",
               lat: 22.30859618762706,
               lng: 114.2357238009161,
-              heading: 90,
+              heading: 250,
+              pitch: -13.5,
+              text:
+                "Welcome to the Lam Tin route, where you can re-experience how Sing Yin Jais went to school by MTR",
             },
             {
-              id: 2,
+              id: 1,
               name: "St Paul",
               lat: 22.30881038662973,
               lng: 114.2377198899602,
-              heading: 0,
+              text: "What is the acronym of St Paul?",
+              options: ["SYSS", "SPSLT", "SPC", "SPCC"],
+              correctOptionId: 1,
             },
             {
-              id: 3,
+              id: 2,
               name: "Lam Tin HKPL",
               lat: 22.309813703963147,
               lng: 114.23769249060987,
-              heading: 0,
+              text: "This is the end of our route",
             },
           ],
         },
@@ -94,14 +99,14 @@ export default {
           title: "Tsim Sha Tsui blah",
           checkpoints: [
             {
-              id: 1,
+              id: 0,
               name: "Tsim Sha Tsui MTR B2",
               lat: 22.298752346044566,
               lng: 114.1724924661573,
               heading: 90,
             },
             {
-              id: 2,
+              id: 1,
               name: "Tsim Sha Tsui Tom Lee",
               lat: 22.2990763328982,
               lng: 114.17292513978508,
@@ -114,14 +119,14 @@ export default {
           title: "Wan Chai blah",
           checkpoints: [
             {
-              id: 1,
+              id: 0,
               name: "Wan Chai somewhere",
               lat: 22.28052758811461,
               lng: 114.17161516788869,
               heading: 90,
             },
             {
-              id: 2,
+              id: 1,
               name: "HKCEC",
               lat: 22.28061799908371,
               lng: 114.17299599980838,

@@ -21,6 +21,7 @@ export default new Vuex.Store({
       state.route = route;
       state.distanceTravelled = 0;
       state.hasStarted = false;
+      state.checkpoint = route.checkpoints[0];
       state.currentCheckpointId = 0;
     },
     setPosition(state, position) {

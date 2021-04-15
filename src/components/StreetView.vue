@@ -57,6 +57,7 @@ export default {
 
     this.panorama.addListener("pov_changed", () => {
       const heading = this.panorama.getPov().heading;
+      console.log({ heading, pitch: this.panorama.getPov().pitch });
       this.$store.dispatch("setHeading", heading);
     });
   },
@@ -101,7 +102,7 @@ export default {
         const marker = new google.maps.Marker({
           title: checkpoint.name,
           icon: MARKER_ICON,
-          animation: google.maps.Animation.BOUNCE,
+          // animation: google.maps.Animation.BOUNCE,
           map: this.panorama,
           visible: false,
           clickable: true,
@@ -124,12 +125,11 @@ export default {
 
       this.panorama.setPov({
         heading: this.route.checkpoints[0].heading,
-        pitch: this.panorama.getPov().pitch,
+        pitch: this.route.checkpoints[0].pitch,
       });
     },
     position(newVal, oldVal) {
       this.updateMarkers();
-
       // Print current position
       console.log(JSON.stringify(this.position));
 
