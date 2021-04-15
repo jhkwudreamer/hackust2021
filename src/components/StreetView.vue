@@ -72,19 +72,16 @@ export default {
           return;
         }
 
-        const DISTANCE_FROM_CENTER = 0.0005;
-        const bounds = new google.maps.LatLngBounds(
-          {
-            lat: marker.getPosition().lat() - DISTANCE_FROM_CENTER,
-            lng: marker.getPosition().lng() - DISTANCE_FROM_CENTER,
-          },
-          {
-            lat: marker.getPosition().lat() + DISTANCE_FROM_CENTER,
-            lng: marker.getPosition().lng() + DISTANCE_FROM_CENTER,
-          }
+        const DISTANCE_FROM_CENTER = 30;
+        const distanceTravelled = google.maps.geometry.spherical.computeDistanceBetween(
+          marker.getPosition(),
+          this.position
         );
 
-        if (bounds.contains(this.position) && id === this.currentCheckpointId) {
+        if (
+          distanceTravelled <= DISTANCE_FROM_CENTER &&
+          id === this.currentCheckpointId
+        ) {
           marker.setVisible(true);
         } else {
           marker.setVisible(false);
