@@ -11,8 +11,29 @@
       <v-icon>fa-map-marked</v-icon>
     </v-btn>
 
-    <div id="SmallMapDiv" v-show="showMap">
+    <div id="SmallMapDiv" v-show="showMap" :class="large ? 'large' : 'small'">
       <div id="SmallMapContainer"></div>
+      <div id="SmallMapOverlay">
+        <v-btn-toggle>
+          <v-btn @click="map.panTo(position)">
+            <v-icon>fa-location-arrow</v-icon>
+          </v-btn>
+          <v-btn
+            @click="
+              currentCheckpointId < markers.length &&
+                map.panTo(markers[currentCheckpointId].getPosition())
+            "
+          >
+            <v-icon>fa-map-marker-alt</v-icon>
+          </v-btn>
+          <v-btn v-show="!large" @click="large = true">
+            <v-icon>fa-search-plus</v-icon>
+          </v-btn>
+          <v-btn v-show="large" @click="large = false">
+            <v-icon>fa-search-minus</v-icon>
+          </v-btn>
+        </v-btn-toggle>
+      </div>
       <v-btn id="SmallMapCloseBtn" icon @click="showMap = false">
         <v-icon>fa-times-circle</v-icon>
       </v-btn>
@@ -27,8 +48,12 @@ export default {
   data() {
     return {
       showMap: false,
+      large: false,
+      /**  @type { google.maps.Map } */
       map: undefined,
+      /**  @type { google.maps.Marker } */
       marker: undefined,
+      /**  @type { google.maps.Marker[] } */
       markers: [],
     };
   },
@@ -121,8 +146,14 @@ export default {
 #SmallMapDiv {
   left: 24px;
   bottom: 24px;
+}
+.small {
   width: 250px;
   height: 250px;
+}
+.large {
+  width: 500px;
+  height: 500px;
 }
 #SmallMapCloseBtn {
   position: absolute;
@@ -132,5 +163,12 @@ export default {
 #SmallMapContainer {
   width: 100%;
   height: 100%;
+}
+#SmallMapOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 80%;
 }
 </style>
