@@ -104,4 +104,7 @@ export default {
 .disabled {
   pointer-events: none;
 }
+.card__title {
+  word-break: inherit;
+}
 </style>
