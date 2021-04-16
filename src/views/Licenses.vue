@@ -2,6 +2,10 @@
   <v-card color="rgb(255, 255, 255, 0.8)">
     <v-card-title>
       <h2>Licenses</h2>
+      <v-spacer></v-spacer>
+      <v-btn icon to="/">
+        <v-icon>fa-times</v-icon>
+      </v-btn>
     </v-card-title>
     <v-card-text>
       <v-container>
@@ -29,6 +33,6 @@ export default {
 iframe {
   width: 100%;
   height: 700px;
-  max-height: 80%;
+  max-height: 100%;
 }
 </style>
