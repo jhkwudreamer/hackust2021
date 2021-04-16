@@ -8,15 +8,13 @@
           "
         ></v-app-bar-nav-icon>
         <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
+          alt="VOLT Logo"
+          class="shrink ml-1 mr-3"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="@/assets/logo.svg"
           transition="scale-transition"
-          width="40"
+          width="70"
         />
-
-        <h2>hackust2021-plasticity</h2>
       </div>
 
       <!-- <v-spacer></v-spacer>
@@ -56,7 +54,9 @@
       <v-list nav dense>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>hackust2021-plasticity</v-list-item-title>
+            <v-list-item-title>
+              Virtual Orienteering, Let’s Travel
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-group
