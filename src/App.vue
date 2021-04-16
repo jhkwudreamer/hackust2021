@@ -98,6 +98,11 @@
           <v-list-item-icon><v-icon>fa-qrcode</v-icon></v-list-item-icon>
           <v-list-item-title>QR Scan</v-list-item-title>
         </v-list-item>
+
+        <v-list-item :to="{ name: 'Licenses' }">
+          <v-list-item-icon><v-icon>fa-info-circle</v-icon></v-list-item-icon>
+          <v-list-item-title>Licenses</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
