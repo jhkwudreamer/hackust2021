@@ -172,3 +172,8 @@ export default {
   z-index: 200;
 }
 </style>
+<style>
+html {
+  overflow: auto;
+}
+</style>
