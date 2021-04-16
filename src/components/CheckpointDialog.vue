@@ -25,6 +25,26 @@
               </v-list-item>
             </v-list-item-group>
           </v-list>
+          <template v-if="checkpoint.id === this.route.checkpoints.length - 1">
+            <v-container>
+              <v-row justify="around">
+                <v-col>
+                  <p class="text-h1 text-center">
+                    <v-icon size="inherit">fa-route</v-icon>
+                  </p>
+                  <p class="text-h5 text-center">
+                    {{ distanceTravelled.toFixed(0) }} m
+                  </p>
+                </v-col>
+                <v-col>
+                  <p class="text-h1 text-center">
+                    <v-icon size="inherit">fa-coins</v-icon>
+                  </p>
+                  <p class="text-h5 text-center">{{ score }} coins</p>
+                </v-col>
+              </v-row>
+            </v-container>
+          </template>
         </v-card-text>
         <v-card-actions>
           <v-btn text @click="nextCheckpoint" v-if="checkpoint.id === 0">
@@ -73,7 +93,22 @@ export default {
     return { dialog: false, selectedOption: undefined };
   },
   computed: {
-    ...mapState(["checkpoint", "route", "currentCheckpointId"]),
+    ...mapState([
+      "checkpoint",
+      "route",
+      "currentCheckpointId",
+      "distanceTravelled",
+      "coins",
+    ]),
+    score() {
+      return (
+        (this.distanceTravelled < 6000
+          ? 110 - this.distanceTravelled / 100
+          : 300000 / (this.distanceTravelled + 1)) +
+        20 +
+        this.coins
+      ).toFixed(0);
+    },
   },
   watch: {
     checkpoint() {
