@@ -77,8 +77,16 @@ export default {
     this.marker = new google.maps.Marker({
       map: this.map,
       icon: {
-        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-        scale: 4,
+        path:
+          "M444.52 3.52L28.74 195.42c-47.97 22.39-31.98 92.75 19.19 92.75h175.91v175.91c0 51.17 70.36 67.17 92.75 19.19l191.9-415.78c15.99-38.39-25.59-79.97-63.97-63.97z",
+        // location-arrow
+        // The SVG has viewport 512×512
+        fillColor: this.$vuetify.theme.themes.light.primary,
+        fillOpacity: 1.0,
+        strokeColor: "#fff",
+        strokeWeight: 2.5,
+        scale: 0.05,
+        anchor: new google.maps.Point(224, 287), // End point of arrow
       },
       visible: true,
     });
@@ -126,7 +134,7 @@ export default {
       if (this.marker) {
         this.marker.setIcon({
           ...this.marker.getIcon(),
-          rotation: this.heading,
+          rotation: this.heading - 45, // fa-location-arrow is 45° clockwise
         });
       }
     },
