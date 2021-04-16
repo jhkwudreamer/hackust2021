@@ -88,7 +88,10 @@ export default {
       }
     },
     selectedOption() {
-      if (this.selectedOption !== this.checkpoint.correctOptionId) {
+      if (
+        this.selectedOption !== undefined &&
+        this.selectedOption !== this.checkpoint.correctOptionId
+      ) {
         this.$store.dispatch("addCoins", -20);
       }
     },
