@@ -22,6 +22,7 @@ export default new Vuex.Store({
         photoURL: require("@/assets/userPhoto.png"),
       },
     },
+    coins: 0,
   },
   mutations: {
     startRoute(state, route) {
@@ -74,6 +75,9 @@ export default new Vuex.Store({
     setCurrentCheckpointId(state, currentCheckpointId) {
       state.currentCheckpointId = currentCheckpointId;
     },
+    addCoins(state, coins) {
+      state.coins += coins;
+    },
   },
   actions: {
     startRoute({ commit }, route) {
@@ -96,6 +100,9 @@ export default new Vuex.Store({
     },
     setCurrentCheckpointId({ commit }, checkpointId) {
       commit("setCurrentCheckpointId", checkpointId);
+    },
+    addCoins({ commit }, coins) {
+      commit("addCoins", coins);
     },
   },
   modules: {},

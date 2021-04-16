@@ -1,6 +1,9 @@
 <template>
   <div class="view-container">
-    <distance-travelled-display />
+    <div class="top-left">
+      <distance-travelled-display />
+      <coins-display class="ml-2" />
+    </div>
     <route-list />
     <small-map />
     <checkpoint-dialog />
@@ -14,12 +17,14 @@ import DistanceTravelledDisplay from "./DistanceTravelledDisplay.vue";
 import RouteList from "./RouteList.vue";
 import SmallMap from "./SmallMap.vue";
 import CheckpointDialog from "./CheckpointDialog.vue";
+import CoinsDisplay from "./CoinsDisplay.vue";
 export default {
   components: {
     DistanceTravelledDisplay,
     RouteList,
     SmallMap,
     CheckpointDialog,
+    CoinsDisplay,
     // Compass,
   },
   data: function () {
@@ -38,5 +43,11 @@ export default {
 }
 .view-container * {
   pointer-events: auto;
+}
+.top-left {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  display: flex;
 }
 </style>

@@ -87,6 +87,11 @@ export default {
         this.$store.commit("setCheckpoint", undefined);
       }
     },
+    selectedOption() {
+      if (this.selectedOption !== this.checkpoint.correctOptionId) {
+        this.$store.dispatch("addCoins", -20);
+      }
+    },
   },
   methods: {
     nextCheckpoint() {

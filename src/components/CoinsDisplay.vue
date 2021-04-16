@@ -1,8 +1,10 @@
 <template>
   <div class="text-center">
-    <v-btn id="distanceTravelledDisplay" large>
-      <v-icon left>fa-route</v-icon>
-      <span class="text-none">{{ distanceTravelled | toFixed(0) }} m</span>
+    <v-btn id="coinDisplay" large>
+      <v-icon left>fa-coins</v-icon>
+      <span class="text-none">{{
+        ((distanceTravelled && 300000 / distanceTravelled) + coins) | toFixed(0)
+      }}</span>
     </v-btn>
   </div>
 </template>
@@ -17,16 +19,13 @@ export default {
   },
 
   computed: {
-    ...mapState(["distanceTravelled"]),
+    ...mapState(["distanceTravelled", "coins"]),
   },
 };
 </script>
 
 <style scoped>
-#distanceTravelledDisplay {
+#coinDisplay {
   background-color: rgba(255, 255, 255, 0.6);
-}
-#distanceTravelledDisplay span {
-  font-size: 120%;
 }
 </style>
