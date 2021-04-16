@@ -81,9 +81,16 @@ export default {
               lat: 22.282829334596418,
               lng: 114.17406227826402,
               heading: 90,
-              text: "Test Question",
-              options: ["A", "B", "C", "D", "E"],
-              correctOptionId: 0,
+              text:
+                "How many events have been held in HKCEC since its establishment?",
+              options: [
+                "Approximately 30,000",
+                "Approximately 50,000",
+                "Approximately 80,000",
+                "Approximately 100,000",
+                "Approximately 200,000",
+              ],
+              correctOptionId: 1,
             },
             {
               id: 2,
