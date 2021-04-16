@@ -147,7 +147,7 @@ export default {
 .disabled {
   pointer-events: none;
 }
-.card__title {
+.v-card__title {
   word-break: inherit;
 }
 </style>
