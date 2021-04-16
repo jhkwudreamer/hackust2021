@@ -121,8 +121,8 @@ export default {
       });
 
       this.panorama.setPov({
-        heading: this.route.checkpoints[0].heading,
-        pitch: this.route.checkpoints[0].pitch,
+        heading: this.route.checkpoints[0].heading || 0,
+        pitch: this.route.checkpoints[0].pitch || 0,
       });
     },
     position(newVal, oldVal) {
