@@ -4,6 +4,9 @@ This is the submission of [hackUST 2021](https://www.ec.ust.hk/hackathon/2021/ho
 
 This web app is called VOLT, the abbreviation for Virtual Orienteering, Let's Travel. We hope to bring a virtual travel experience of virtual orienteering with Google Maps Street View.
 
+## Project preview
+https://hackust2021-plasticity-1yd55s.web.app/
+
 ## Project setup
 ```
 npm install
