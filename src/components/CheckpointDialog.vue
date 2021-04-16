@@ -10,9 +10,7 @@
         </v-card-title>
 
         <v-card-text>
-          <p class="text-subtitle-1 mt-5 mb-2">
-            {{ checkpoint.text }}
-          </p>
+          <p class="text-subtitle-1 mt-5 mb-2" v-html="checkpoint.text"></p>
           <v-list style="background: inherit" v-if="checkpoint.options">
             <v-list-item-group v-model="selectedOption">
               <v-list-item

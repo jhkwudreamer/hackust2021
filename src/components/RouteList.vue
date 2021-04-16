@@ -64,59 +64,7 @@ export default {
       routes: [
         {
           id: 1,
-          title: "Lam Tin blah",
-          checkpoints: [
-            {
-              id: 0,
-              name: "Lam Tin somewhere",
-              lat: 22.30859618762706,
-              lng: 114.2357238009161,
-              heading: 250,
-              pitch: -13.5,
-              text:
-                "Welcome to the Lam Tin route, where you can re-experience how Sing Yin Jais went to school by MTR",
-            },
-            {
-              id: 1,
-              name: "St Paul",
-              lat: 22.30881038662973,
-              lng: 114.2377198899602,
-              text: "What is the acronym of St Paul?",
-              options: ["SYSS", "SPSLT", "SPC", "SPCC"],
-              correctOptionId: 1,
-            },
-            {
-              id: 2,
-              name: "Lam Tin HKPL",
-              lat: 22.309813703963147,
-              lng: 114.23769249060987,
-              text: "This is the end of our route",
-            },
-          ],
-        },
-        {
-          id: 2,
-          title: "Tsim Sha Tsui blah",
-          checkpoints: [
-            {
-              id: 0,
-              name: "Tsim Sha Tsui MTR B2",
-              lat: 22.298752346044566,
-              lng: 114.1724924661573,
-              heading: 90,
-            },
-            {
-              id: 1,
-              name: "Tsim Sha Tsui Tom Lee",
-              lat: 22.2990763328982,
-              lng: 114.17292513978508,
-              heading: 0,
-            },
-          ],
-        },
-        {
-          id: 3,
-          title: "Wan Chai blah",
+          title: "Wan Chai Sightseeing",
           checkpoints: [
             {
               id: 0,
@@ -124,6 +72,8 @@ export default {
               lat: 22.277506466668182,
               lng: 114.17308811625979,
               heading: 90,
+              text:
+                "Let's begin our route from the Wan Chai MTR station. <br>Next checkpoint: HKCEC",
             },
             {
               id: 1,
@@ -131,6 +81,9 @@ export default {
               lat: 22.282829334596418,
               lng: 114.17406227826402,
               heading: 90,
+              text: "Test Question",
+              options: ["A", "B", "C", "D", "E"],
+              correctOptionId: 0,
             },
             {
               id: 2,
