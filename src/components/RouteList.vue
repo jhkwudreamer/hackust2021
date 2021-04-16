@@ -116,7 +116,7 @@ export default {
   },
   methods: {
     startRoute(route) {
-      window.alert("Welcome to route_id=" + route.id);
+      // window.alert("Welcome to route_id=" + route.id);
       this.dialog = false;
       this.$store.dispatch("startRoute", route);
     },
