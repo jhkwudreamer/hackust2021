@@ -3,7 +3,7 @@
     <v-btn id="coinDisplay" large>
       <v-icon left>fa-coins</v-icon>
       <span class="text-none">{{
-        ((distanceTravelled && 300000 / distanceTravelled) + coins) | toFixed(0)
+        score | toFixed(0)
       }}</span>
     </v-btn>
   </div>
@@ -20,6 +20,7 @@ export default {
 
   computed: {
     ...mapState(["distanceTravelled", "coins"]),
+    score(){console.log(this.distanceTravelled); return ((this.distanceTravelled < 6000 ? (110 - this.distanceTravelled/100) : (300000 / (this.distanceTravelled + 1))) + 20 + this.coins)},
   },
 };
 </script>

@@ -92,7 +92,7 @@ export default {
         this.selectedOption !== undefined &&
         this.selectedOption !== this.checkpoint.correctOptionId
       ) {
-        this.$store.dispatch("addCoins", -20);
+        this.$store.dispatch("addCoins", -5);
       }
     },
   },
