@@ -16,8 +16,10 @@
               <v-list-item
                 v-for="(option, i) in checkpoint.options"
                 :key="i"
-                :color="i === checkpoint.correctOptionId && 'success'"
-                :class="selectedOption !== undefined && 'disabled'"
+                :color="
+                  i === checkpoint.correctOptionId ? 'success' : undefined
+                "
+                :class="selectedOption !== undefined ? 'disabled' : undefined"
               >
                 <v-list-item-content>
                   <v-list-item-title v-text="option"></v-list-item-title>
