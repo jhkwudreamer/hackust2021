@@ -74,7 +74,8 @@
               text
               @click="dialog = false"
               v-if="
-                selectedOption && selectedOption !== checkpoint.correctOptionId
+                selectedOption !== undefined &&
+                selectedOption !== checkpoint.correctOptionId
               "
             >
               Try Again
