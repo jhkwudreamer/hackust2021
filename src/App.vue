@@ -153,6 +153,8 @@ export default {
     $route(to) {
       if (to.path !== "/") {
         this.dialog = true;
+      } else {
+        this.dialog = false;
       }
     },
 
