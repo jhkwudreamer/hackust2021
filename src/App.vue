@@ -19,7 +19,7 @@
         <h2>hackust2021-plasticity</h2>
       </div>
 
-      <v-spacer></v-spacer>
+      <!-- <v-spacer></v-spacer>
 
       <div class="hidden-md-and-down">
         <template v-if="user.isSignedIn">
@@ -49,7 +49,7 @@
         <template v-else>
           <v-btn :to="{ name: 'SignIn' }">Sign in</v-btn>
         </template>
-      </div>
+      </div> -->
     </v-app-bar>
 
     <v-navigation-drawer app v-model="navDrawer.isNavDrawerOpened">
@@ -60,7 +60,6 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-group
-          class="hidden-lg-and-up"
           v-if="user.isSignedIn"
           v-model="navDrawer.isAccountOpened"
           no-action
